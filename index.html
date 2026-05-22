@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mk">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,6 @@
     <meta name="author" content="APEX Performance Studio" />
     <title>APEX — Elite Performance Studio</title>
 
-    <!-- Google Fonts: Bebas Neue (display) + Outfit (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
@@ -24,12 +23,12 @@
     <div class="loader__inner">
         <div class="loader__logo">APEX</div>
         <div class="loader__bar"><div class="loader__progress"></div></div>
-        <div class="loader__tagline">Initializing Elite Experience…</div>
+        <div class="loader__tagline" id="loaderTagline">Initializing Elite Experience…</div>
     </div>
 </div>
 
 <!-- ============================================================
-     CUSTOM CURSOR
+     CUSTOM CURSOR — desktop only
 ============================================================ -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
@@ -40,26 +39,25 @@
 <header class="navbar" id="navbar">
     <nav class="navbar__inner container">
 
-        <!-- Logo -->
         <a href="#hero" class="navbar__logo">
             <span class="logo__mark">▲</span>
             <span class="logo__text">APEX</span>
             <span class="logo__sub">PERFORMANCE STUDIO</span>
         </a>
 
-        <!-- Desktop nav links -->
         <ul class="navbar__links" id="navLinks">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#programs" class="nav-link">Programs</a></li>
-            <li><a href="#trainers" class="nav-link">Trainers</a></li>
-            <li><a href="#pricing" class="nav-link">Membership</a></li>
-            <li><a href="#gallery" class="nav-link">Gallery</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#about" class="nav-link" data-mk="За нас" data-en="About">За нас</a></li>
+            <li><a href="#programs" class="nav-link" data-mk="Програми" data-en="Programs">Програми</a></li>
+            <li><a href="#trainers" class="nav-link" data-mk="Тренери" data-en="Trainers">Тренери</a></li>
+            <li><a href="#pricing" class="nav-link" data-mk="Членство" data-en="Membership">Членство</a></li>
+            <li><a href="#contact" class="nav-link" data-mk="Контакт" data-en="Contact">Контакт</a></li>
         </ul>
 
-        <!-- CTA + Hamburger -->
         <div class="navbar__actions">
-            <a href="#pricing" class="btn btn--outline btn--sm">Join Now</a>
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                <span class="lang-toggle__active" id="langLabel">EN</span>
+            </button>
+            <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="btn btn--outline btn--sm" data-mk="Посетете не" data-en="Visit Us">Посетете не</a>
             <button class="hamburger" id="hamburger" aria-label="Open menu">
                 <span></span><span></span><span></span>
             </button>
@@ -71,14 +69,13 @@
 <!-- Mobile menu overlay -->
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="#about" class="mobile-link">About</a></li>
-        <li><a href="#programs" class="mobile-link">Programs</a></li>
-        <li><a href="#trainers" class="mobile-link">Trainers</a></li>
-        <li><a href="#pricing" class="mobile-link">Membership</a></li>
-        <li><a href="#gallery" class="mobile-link">Gallery</a></li>
-        <li><a href="#contact" class="mobile-link">Contact</a></li>
+        <li><a href="#about" class="mobile-link" data-mk="За нас" data-en="About">За нас</a></li>
+        <li><a href="#programs" class="mobile-link" data-mk="Програми" data-en="Programs">Програми</a></li>
+        <li><a href="#trainers" class="mobile-link" data-mk="Тренери" data-en="Trainers">Тренери</a></li>
+        <li><a href="#pricing" class="mobile-link" data-mk="Членство" data-en="Membership">Членство</a></li>
+        <li><a href="#contact" class="mobile-link" data-mk="Контакт" data-en="Contact">Контакт</a></li>
     </ul>
-    <a href="#pricing" class="btn btn--primary mobile-link">Join Now</a>
+    <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="btn btn--primary mobile-link" data-mk="Посетете не" data-en="Visit Us">Посетете не</a>
 </div>
 
 <main>
@@ -87,38 +84,30 @@
          SECTION 1 — HERO
     ============================================================ -->
     <section class="hero" id="hero">
-        <!-- REPLACE: swap this div for a <video> or <img> tag with your hero background -->
         <div class="hero__bg">
-            <!-- Placeholder gradient simulating a dark gym photo -->
             <div class="hero__bg-img" style="background-image: url('images/Hero.jpg');"></div>
             <div class="hero__overlay"></div>
         </div>
 
-        <!-- Decorative vertical text -->
         <span class="hero__vertical-text">ELITE · PERFORMANCE · STUDIO</span>
 
         <div class="hero__content container">
-            <div class="hero__badge reveal">EST. 2018 · SKOPJE</div>
+            <div class="hero__badge reveal" data-mk="ОСН. 2018 · СКОПЈЕ" data-en="EST. 2018 · SKOPJE">ОСН. 2018 · СКОПЈЕ</div>
             <h1 class="hero__headline reveal">
-                FORGE YOUR<br />
-                <em class="hero__headline--accent">BEST SELF</em><br />
-                HERE.
+                <span data-mk="БИДИ" data-en="FORGE YOUR">ИСКОВАЈ ГО</span><br />
+                <em class="hero__headline--accent" data-mk="НАЈДОБАР" data-en="BEST SELF">НАЈДОБРОТО</em><br />
+                <span data-mk="ТУКА." data-en="HERE.">ТУКА.</span>
             </h1>
-            <p class="hero__sub reveal">
-                Premium training. Elite coaching. Zero compromise.<br />
-                Your transformation starts the moment you walk in.
+            <p class="hero__sub reveal" data-mk="Премиум тренинг. Најдобра програма. Без компромиси.<br />Твојата трансформација почнува во моментот кога влегуваш." data-en="Premium training. Elite coaching. Zero compromise.<br />Your transformation starts the moment you walk in.">
+                Премиум тренинг. Најдобра програма. Без компромиси.<br />
+                Твојата трансформација почнува во моментот кога влегуваш.
             </p>
             <div class="hero__cta reveal">
-                <a href="#pricing" class="btn btn--primary">Join Now</a>
-                <a href="#programs" class="btn btn--ghost">View Programs</a>
+                <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="btn btn--primary" data-mk="Посетете не" data-en="Visit Us">Посетете не</a>
+                <a href="#programs" class="btn btn--ghost" data-mk="Погледни програми" data-en="View Programs">Погледни програми</a>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="hero__scroll">
-            <span>Scroll</span>
-            <div class="hero__scroll-line"></div>
-        </div>
+        <!-- Scroll indicator intentionally removed -->
     </section>
 
     <!-- ============================================================
@@ -127,50 +116,46 @@
     <section class="about section" id="about">
         <div class="container about__grid">
 
-            <!-- Left: image + badge -->
             <div class="about__visual reveal">
-                <!-- REPLACE: put your gym interior photo here -->
                 <div class="about__img-wrap">
                     <img src="images/hymmmm.webp" alt="APEX gym interior" class="about__img" onerror="this.style.background='#1a1a1a';this.removeAttribute('src')" />
-                    <div class="about__img-placeholder">
-                        <!-- Shown when no real image is loaded -->
-                        <span>GYM INTERIOR PHOTO</span>
-                    </div>
+                    <div class="about__img-placeholder"><span>GYM INTERIOR PHOTO</span></div>
                 </div>
                 <div class="about__badge-float glass">
                     <span class="badge-num">8+</span>
-                    <span class="badge-label">Years of Excellence</span>
+                    <span class="badge-label" data-mk="Години извонредност" data-en="Years of Excellence">Години извонредност</span>
                 </div>
             </div>
 
-            <!-- Right: text + stats -->
             <div class="about__content">
-                <div class="section-label reveal">Who We Are</div>
-                <h2 class="section-title reveal">More Than a Gym.<br /><em>A Lifestyle.</em></h2>
-                <p class="about__text reveal">
-                    APEX is built for those who refuse to settle. We've engineered every square metre of our 1,000 m² space around one purpose: <strong>your peak performance</strong>. State-of-the-art equipment, elite trainers, and a culture that pushes boundaries.
+                <div class="section-label reveal" data-mk="Кои сме ние" data-en="Who We Are">Кои сме ние</div>
+                <h2 class="section-title reveal">
+                    <span data-mk="Повеќе од теретана." data-en="More Than a Gym.">Повеќе од теретана.</span><br />
+                    <em data-mk="Начин на живот." data-en="A Lifestyle.">Начин на живот.</em>
+                </h2>
+                <p class="about__text reveal" data-mk="APEX е изграден за оние кои одбиваат да се задоволат со малку. Секој квадратен метар од нашиот простор од 1.000 м² е инженериран со единствена цел: <strong>твојата максимална изведба</strong>. Врвна опрема, елитни тренери и култура која ги надминува границите." data-en="APEX is built for those who refuse to settle. We've engineered every square metre of our 1,000 m² space around one purpose: <strong>your peak performance</strong>. State-of-the-art equipment, elite trainers, and a culture that pushes boundaries.">
+                    APEX е изграден за оние кои одбиваат да се задоволат со малку. Секој квадратен метар од нашиот простор од 1.000 м² е инженериран со единствена цел: <strong>твојата максимална изведба</strong>. Врвна опрема, елитни тренери и култура која ги поминува границите.
                 </p>
-                <p class="about__text reveal">
-                    Whether you're starting out or competing at the highest level, our expert team tailors every session to your goals — and stays with you until you hit them.
+                <p class="about__text reveal" data-mk="Без разлика дали почнувате или се натпреварувате на највисоко ниво, нашиот тим го прилагодува секој тренинг на вашите цели — и останува со вас додека не ги постигнете." data-en="Whether you're starting out or competing at the highest level, our expert team tailors every session to your goals — and stays with you until you hit them.">
+                    Без разлика дали почнувате или се натпреварувате на највисоко ниво, нашиот тим го прилагодува секој тренинг на вашите цели — и останува со вас додека не ги постигнете.
                 </p>
 
-                <!-- Animated statistics -->
                 <div class="stats-grid reveal">
                     <div class="stat-card glass">
                         <span class="stat-num" data-target="1000">0</span><span class="stat-unit">m²</span>
-                        <span class="stat-label">Training Space</span>
+                        <span class="stat-label" data-mk="Простор за тренинг" data-en="Training Space">Простор за тренинг</span>
                     </div>
                     <div class="stat-card glass">
                         <span class="stat-num" data-target="24">0</span><span class="stat-unit">/7</span>
-                        <span class="stat-label">Open Access</span>
+                        <span class="stat-label" data-mk="Отворен пристап" data-en="Open Access">Отворен пристап</span>
                     </div>
                     <div class="stat-card glass">
                         <span class="stat-num" data-target="18">0</span><span class="stat-unit">+</span>
-                        <span class="stat-label">Elite Trainers</span>
+                        <span class="stat-label" data-mk="Елитни тренери" data-en="Elite Trainers">Елитни тренери</span>
                     </div>
                     <div class="stat-card glass">
                         <span class="stat-num" data-target="3200">0</span><span class="stat-unit">+</span>
-                        <span class="stat-label">Active Members</span>
+                        <span class="stat-label" data-mk="Активни членови" data-en="Active Members">Активни членови</span>
                     </div>
                 </div>
             </div>
@@ -185,77 +170,58 @@
         <div class="container">
 
             <div class="section-header reveal">
-                <div class="section-label">What We Offer</div>
-                <h2 class="section-title">Training <em>Programs</em></h2>
-                <p class="section-desc">Six disciplines. One mission. Unlimited potential.</p>
+                <div class="section-label" data-mk="Што нудиме" data-en="What We Offer">Што нудиме</div>
+                <h2 class="section-title"><span data-mk="Програми за" data-en="Training">Програми за</span> <em data-mk="тренинг" data-en="Programs">тренинг</em></h2>
+                <p class="section-desc" data-mk="Шест дисциплини. Една мисија. Неограничен потенцијал." data-en="Six disciplines. One mission. Unlimited potential.">Шест дисциплини. Една мисија. Неограничен потенцијал.</p>
             </div>
 
             <div class="programs__grid">
 
                 <article class="program-card reveal" data-index="0">
-                    <!-- REPLACE: image for Classic Fitness -->
-                    <div class="program-card__img" style="background-image:url('images/fitnesss.webp')">
-                    </div>
+                    <div class="program-card__img" style="background-image:url('images/fitnesss.webp')"></div>
                     <div class="program-card__body">
-                        <div class="program-card__icon">⚡</div>
-                        <h3>Classic Fitness</h3>
-                        <p>Foundational strength, endurance, and physique work using free weights and machines. Perfect for all levels.</p>
-                        <a href="#contact" class="program-card__link">Learn More →</a>
+                        <h3 data-mk="Класичен фитнес" data-en="Classic Fitness">Класичен фитнес</h3>
+                        <p data-mk="Основна сила, издржливост и работа на изглед со слободни тегови и машини. Соодветно за сите нивоа." data-en="Foundational strength, endurance, and physique work using free weights and machines. Perfect for all levels.">Основна сила, издржливост и работа на изглед со слободни тегови и машини. Соодветно за сите нивоа.</p>
                     </div>
                 </article>
 
                 <article class="program-card reveal" data-index="1">
-                    <div class="program-card__img" style="background-image:url('images/trainingg.jpg')">
-                    </div>
+                    <div class="program-card__img" style="background-image:url('images/trainingg.jpg')"></div>
                     <div class="program-card__body">
-                        <div class="program-card__icon">🔥</div>
-                        <h3>Functional Training</h3>
-                        <p>Movement-based training that builds real-world strength, agility, and coordination across every plane of motion.</p>
-                        <a href="#contact" class="program-card__link">Learn More →</a>
+                        <h3 data-mk="Функционален тренинг" data-en="Functional Training">Функционален тренинг</h3>
+                        <p data-mk="Тренинг базиран на движење кој гради реална сила, агилност и координација во секоја рамнина на движење." data-en="Movement-based training that builds real-world strength, agility, and coordination across every plane of motion.">Тренинг базиран на движење кој гради реална сила, агилност и координација во секоја рамнина на движење.</p>
                     </div>
                 </article>
 
                 <article class="program-card reveal" data-index="2">
-                    <div class="program-card__img" style="background-image:url('images/prog-group.jpg')">
-                    </div>
+                    <div class="program-card__img" style="background-image:url('images/prog-group.jpg')"></div>
                     <div class="program-card__body">
-                        <div class="program-card__icon">👥</div>
-                        <h3>Group Training</h3>
-                        <p>High-energy group sessions led by elite coaches. Community-driven, motivating, and brutally effective.</p>
-                        <a href="#contact" class="program-card__link">Learn More →</a>
+                        <h3 data-mk="Групен тренинг" data-en="Group Training">Групен тренинг</h3>
+                        <p data-mk="Енергични групни сесии предводени од елитни тренери. Заедница, мотивација и извонредна ефективност." data-en="High-energy group sessions led by elite coaches. Community-driven, motivating, and brutally effective.">Енергични групни сесии предводени од елитни тренери. Заедница, мотивација и извонредна ефективност.</p>
                     </div>
                 </article>
 
                 <article class="program-card reveal" data-index="3">
-                    <div class="program-card__img" style="background-image:url('images/download (1).webp')">
-                    </div>
+                    <div class="program-card__img" style="background-image:url('images/download (1).webp')"></div>
                     <div class="program-card__body">
-                        <div class="program-card__icon">🎯</div>
-                        <h3>Personal Training</h3>
-                        <p>One-on-one sessions with a dedicated coach. Fully customised plans, real-time feedback, maximum results.</p>
-                        <a href="#contact" class="program-card__link">Learn More →</a>
+                        <h3 data-mk="Личен тренинг" data-en="Personal Training">Личен тренинг</h3>
+                        <p data-mk="Сесии еден-на-еден со посветен тренер. Целосно прилагодени планови, повратна информација во реално време, максимални резултати." data-en="One-on-one sessions with a dedicated coach. Fully customised plans, real-time feedback, maximum results.">Сесии еден-на-еден со посветен тренер. Целосно прилагодени планови, повратна информација во реално време, максимални резултати.</p>
                     </div>
                 </article>
 
                 <article class="program-card reveal" data-index="4">
-                    <div class="program-card__img" style="background-image:url('images/Corey Reed at CFLA_.webp')">
-                    </div>
+                    <div class="program-card__img" style="background-image:url('images/Corey Reed at CFLA_.webp')"></div>
                     <div class="program-card__body">
-                        <div class="program-card__icon">💨</div>
-                        <h3>Cardio & Conditioning</h3>
-                        <p>State-of-the-art cardio machines and HIIT programs designed to maximise fat loss and cardiovascular health.</p>
-                        <a href="#contact" class="program-card__link">Learn More →</a>
+                        <h3 data-mk="Кардио и кондиција" data-en="Cardio & Conditioning">Кардио и кондиција</h3>
+                        <p data-mk="Врвни кардио машини и HIIT програми дизајнирани да го максимизираат губењето на масти и здравјето на срцето." data-en="State-of-the-art cardio machines and HIIT programs designed to maximise fat loss and cardiovascular health.">Врвни кардио машини и HIIT програми дизајнирани да го максимизираат губењето на масти и здравјето на срцето.</p>
                     </div>
                 </article>
 
                 <article class="program-card reveal" data-index="5">
-                    <div class="program-card__img" style="background-image:url('images/Ryan Fischer.jpg')">
-                    </div>
+                    <div class="program-card__img" style="background-image:url('images/Ryan Fischer.jpg')"></div>
                     <div class="program-card__body">
-                        <div class="program-card__icon">🏋️</div>
-                        <h3>Strength & Power</h3>
-                        <p>Olympic lifting platforms, power racks, and specialist coaches for serious strength athletes and lifters.</p>
-                        <a href="#contact" class="program-card__link">Learn More →</a>
+                        <h3 data-mk="Сила и моќ" data-en="Strength & Power">Сила и моќ</h3>
+                        <p data-mk="Олимписки платформи за кревање, рамки за моќ и специјалисти тренери за сериозни атлетичари." data-en="Olympic lifting platforms, power racks, and specialist coaches for serious strength athletes and lifters.">Олимписки платформи за кревање, рамки за моќ и специјалисти тренери за сериозни атлетичари.</p>
                     </div>
                 </article>
 
@@ -264,93 +230,42 @@
     </section>
 
     <!-- ============================================================
-         SECTION 4 — TRAINERS
+         SECTION 4 — TRAINERS (2 trainers only)
     ============================================================ -->
     <section class="trainers section" id="trainers">
         <div class="container">
 
             <div class="section-header reveal">
-                <div class="section-label">The Team</div>
-                <h2 class="section-title">Elite <em>Coaches</em></h2>
-                <p class="section-desc">Our trainers are certified, experienced, and obsessed with your progress.</p>
+                <div class="section-label" data-mk="Тимот" data-en="The Team">Тимот</div>
+                <h2 class="section-title"><span data-mk="Најдобри" data-en="Elite">Елитни</span> <em data-mk="тренери" data-en="Coaches">тренери</em></h2>
+                <p class="section-desc" data-mk="Нашите тренери се сертифицирани, искусни и опседнати со вашиот напредок." data-en="Our trainers are certified, experienced, and obsessed with your progress.">Нашите тренери се сертифицирани, искусни и опседнати со вашиот напредок.</p>
             </div>
 
-            <div class="trainers__grid">
+            <div class="trainers__grid trainers__grid--two">
 
-                <!-- TRAINER CARD 1 -->
-                <!-- REPLACE: trainer photo in images/trainer-1.jpg -->
                 <div class="trainer-card reveal">
                     <div class="trainer-card__img-wrap">
-                        <div class="trainer-card__img" style="background-image:url('images/trenerr.jpg')">
-                        </div>
+                        <div class="trainer-card__img" style="background-image:url('images/trenerr.jpg')"></div>
                         <div class="trainer-card__overlay">
-                            <div class="trainer-social">
-                                <a href="#" aria-label="Instagram">ig</a>
-                                <a href="#" aria-label="LinkedIn">in</a>
-                            </div>
                         </div>
                     </div>
                     <div class="trainer-card__body">
                         <h3 class="trainer-name">Dejan Markoski</h3>
-                        <span class="trainer-specialty">Strength & Conditioning</span>
-                        <p class="trainer-bio">10+ years competitive powerlifting. NSCA-certified. Specialises in compound strength and athletic performance.</p>
+                        <span class="trainer-specialty" data-mk="Сила и кондиција" data-en="Strength & Conditioning">Сила и кондиција</span>
+                        <p class="trainer-bio" data-mk="10+ години компетитивен пауерлифтинг. NSCA-сертифициран. Специјализиран за сложена сила и атлетски перформанси." data-en="10+ years competitive powerlifting. NSCA-certified. Specialises in compound strength and athletic performance.">10+ години компетитивен пауерлифтинг. NSCA-сертифициран. Специјализиран за сложена сила и атлетски перформанси.</p>
                     </div>
                 </div>
 
-                <!-- TRAINER CARD 2 -->
                 <div class="trainer-card reveal">
                     <div class="trainer-card__img-wrap">
-                        <div class="trainer-card__img" style="background-image:url('images/download.jpg')">
-                        </div>
+                        <div class="trainer-card__img" style="background-image:url('images/Foto Profissional _ Posicionamento _ Musculação.jpg')"></div>
                         <div class="trainer-card__overlay">
-                            <div class="trainer-social">
-                                <a href="#" aria-label="Instagram">ig</a>
-                                <a href="#" aria-label="LinkedIn">in</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="trainer-card__body">
-                        <h3 class="trainer-name">Marko Dimitrieski</h3>
-                        <span class="trainer-specialty">Functional & HIIT</span>
-                        <p class="trainer-bio">CrossFit L3, former national athlete. Builds full-body conditioning with laser-focused programming.</p>
-                    </div>
-                </div>
-
-                <!-- TRAINER CARD 3 -->
-                <div class="trainer-card reveal">
-                    <div class="trainer-card__img-wrap">
-                        <div class="trainer-card__img" style="background-image:url('images/Foto Profissional _ Posicionamento _ Musculação.jpg')">
-                        </div>
-                        <div class="trainer-card__overlay">
-                            <div class="trainer-social">
-                                <a href="#" aria-label="Instagram">ig</a>
-                                <a href="#" aria-label="LinkedIn">in</a>
-                            </div>
                         </div>
                     </div>
                     <div class="trainer-card__body">
                         <h3 class="trainer-name">Marjan Petreski</h3>
-                        <span class="trainer-specialty">Olympic Lifting</span>
-                        <p class="trainer-bio">Two-time national champion. Masters-certified weightlifting coach. Power, technique, and precision.</p>
-                    </div>
-                </div>
-
-                <!-- TRAINER CARD 4 -->
-                <div class="trainer-card reveal">
-                    <div class="trainer-card__img-wrap">
-                        <div class="trainer-card__img" style="background-image:url('images/dadada.jpg')">
-                        </div>
-                        <div class="trainer-card__overlay">
-                            <div class="trainer-social">
-                                <a href="#" aria-label="Instagram">ig</a>
-                                <a href="#" aria-label="LinkedIn">in</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="trainer-card__body">
-                        <h3 class="trainer-name">Stefan Anastatovski</h3>
-                        <span class="trainer-specialty">Nutrition & Body Comp</span>
-                        <p class="trainer-bio">Registered nutritionist + PT. Specialises in physique transformation, metabolic health, and sustainable fat loss.</p>
+                        <span class="trainer-specialty" data-mk="Нутриција" data-en="Nutriotion">Нутриција</span>
+                        <p class="trainer-bio" data-mk="Двократен национален шампион. Мастер-сертифициран тренер по кревање тегови. Моќ, техника и прецизност." data-en="Two-time national champion. Masters-certified weightlifting coach. Power, technique, and precision.">Двократен национален шампион. Мастер-сертифициран тренер по кревање тегови. Моќ, техника и прецизност.</p>
                     </div>
                 </div>
 
@@ -365,81 +280,77 @@
         <div class="container">
 
             <div class="section-header reveal">
-                <div class="section-label">Membership</div>
-                <h2 class="section-title">Simple, <em>Transparent</em> Pricing</h2>
-                <p class="section-desc">No hidden fees. No contracts you'll regret. Just results.</p>
+                <div class="section-label" data-mk="Членство" data-en="Membership">Членство</div>
+                <h2 class="section-title"><span data-mk="Едноставни," data-en="Simple,">Едноставни,</span> <em data-mk="транспарентни" data-en="Transparent">транспарентни</em> <span data-mk="цени" data-en="Pricing">цени</span></h2>
+                <p class="section-desc" data-mk="Без скриени трошоци. Без договори кои ќе ги пожалите. Само резултати." data-en="No hidden fees. No contracts you'll regret. Just results.">Без скриени трошоци. Без договори кои ќе ги пожалите. Само резултати.</p>
             </div>
 
-            <!-- Toggle: monthly / yearly -->
             <div class="pricing__toggle reveal" id="pricingToggle">
-                <button class="toggle-btn active" data-period="monthly">Monthly</button>
-                <button class="toggle-btn" data-period="yearly">Yearly <span class="toggle-save">Save 20%</span></button>
+                <button class="toggle-btn active" data-period="monthly" data-mk="Месечно" data-en="Monthly">Месечно</button>
+                <button class="toggle-btn" data-period="yearly" data-mk="Годишно" data-en="Yearly"><span data-mk="Годишно" data-en="Yearly">Годишно</span> <span class="toggle-save" data-mk="Заштеди 20%" data-en="Save 20%">Заштеди 20%</span></button>
             </div>
 
             <div class="pricing__grid">
 
-                <!-- STARTER -->
                 <div class="price-card glass reveal">
                     <div class="price-card__header">
-                        <div class="price-card__tier">Starter</div>
+                        <div class="price-card__tier" data-mk="Стартер" data-en="Starter">Стартер</div>
                         <div class="price-card__price">
                             <span class="price-currency">€</span>
                             <span class="price-amount" data-monthly="29" data-yearly="23">29</span>
-                            <span class="price-period">/mo</span>
+                            <span class="price-period" data-mk="/мес" data-en="/mo">/мес</span>
                         </div>
                     </div>
                     <ul class="price-card__features">
-                        <li>✓ Full gym access</li>
-                        <li>✓ Locker room & showers</li>
-                        <li>✓ 2 group classes / week</li>
-                        <li>✓ Fitness assessment</li>
-                        <li class="muted">✗ Personal training sessions</li>
-                        <li class="muted">✗ Nutrition consultation</li>
+                        <li data-mk="✓ Целосен пристап до теретана" data-en="✓ Full gym access">✓ Целосен пристап до теретана</li>
+                        <li data-mk="✓ Соблекувална и туш" data-en="✓ Locker room &amp; showers">✓ Соблекувална и туш</li>
+                        <li data-mk="✓ 2 групни часови / неделно" data-en="✓ 2 group classes / week">✓ 2 групни часови / неделно</li>
+                        <li data-mk="✓ Фитнес проценка" data-en="✓ Fitness assessment">✓ Фитнес проценка</li>
+                        <li class="muted" data-mk="✗ Лични тренинг сесии" data-en="✗ Personal training sessions">✗ Лични тренинг сесии</li>
+                        <li class="muted" data-mk="✗ Консултација за исхрана" data-en="✗ Nutrition consultation">✗ Консултација за исхрана</li>
                     </ul>
-                    <a href="#contact" class="btn btn--outline w-full">Get Started</a>
+                    <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="btn btn--outline w-full" data-mk="Посетете не" data-en="Visit Us">Посетете не</a>
                 </div>
 
-                <!-- PRO — POPULAR -->
                 <div class="price-card price-card--featured glass reveal">
-                    <div class="price-card__badge">Most Popular</div>
+                    <div class="price-card__badge" data-mk="Најпопуларно" data-en="Most Popular">Најпопуларно</div>
                     <div class="price-card__header">
-                        <div class="price-card__tier">Pro</div>
+                        <div class="price-card__tier" data-mk="Про" data-en="Pro">Про</div>
                         <div class="price-card__price">
                             <span class="price-currency">€</span>
                             <span class="price-amount" data-monthly="59" data-yearly="47">59</span>
-                            <span class="price-period">/mo</span>
+                            <span class="price-period" data-mk="/мес" data-en="/mo">/мес</span>
                         </div>
                     </div>
                     <ul class="price-card__features">
-                        <li>✓ Everything in Starter</li>
-                        <li>✓ Unlimited group classes</li>
-                        <li>✓ 4 PT sessions / month</li>
-                        <li>✓ Nutrition plan</li>
-                        <li>✓ Progress tracking</li>
-                        <li class="muted">✗ Priority booking</li>
+                        <li data-mk="✓ Сè од Стартер" data-en="✓ Everything in Starter">✓ Сè од Стартер</li>
+                        <li data-mk="✓ Неограничени групни часови" data-en="✓ Unlimited group classes">✓ Неограничени групни часови</li>
+                        <li data-mk="✓ 4 ПТ сесии / месечно" data-en="✓ 4 PT sessions / month">✓ 4 ПТ сесии / месечно</li>
+                        <li data-mk="✓ План за исхрана" data-en="✓ Nutrition plan">✓ План за исхрана</li>
+                        <li data-mk="✓ Следење на напредокот" data-en="✓ Progress tracking">✓ Следење на напредокот</li>
+                        <li class="muted" data-mk="✗ Приоритетно резервирање" data-en="✗ Priority booking">✗ Приоритетно резервирање</li>
                     </ul>
-                    <a href="#contact" class="btn btn--primary w-full">Get Started</a>
+                    <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="btn btn--primary w-full" data-mk="Посетете не" data-en="Visit Us">Посетете не</a>
                 </div>
 
-                <!-- ELITE -->
                 <div class="price-card glass reveal">
                     <div class="price-card__header">
-                        <div class="price-card__tier">Elite</div>
+                        <div class="price-card__tier" data-mk="Елита" data-en="Elite">Елита</div>
                         <div class="price-card__price">
                             <span class="price-currency">€</span>
                             <span class="price-amount" data-monthly="99" data-yearly="79">99</span>
-                            <span class="price-period">/mo</span>
+                            <span class="price-period" data-mk="/мес" data-en="/mo">/мес</span>
                         </div>
                     </div>
                     <ul class="price-card__features">
-                        <li>✓ Everything in Pro</li>
-                        <li>✓ Unlimited PT sessions</li>
-                        <li>✓ Priority booking</li>
-                        <li>✓ Body composition scans</li>
-                        <li>✓ Recovery suite access</li>
-                        <li>✓ Dedicated coach</li>
+                        <li data-mk="✓ Сè од Про" data-en="✓ Everything in Pro">✓ Сè од Про</li>
+                        <li data-mk="✓ Неограничени ПТ сесии" data-en="✓ Unlimited PT sessions">✓ Неограничени ПТ сесии</li>
+                        <li data-mk="✓ Приоритетно резервирање" data-en="✓ Priority booking">✓ Приоритетно резервирање</li>
+                        <li data-mk="✓ Скенирање на телесен состав" data-en="✓ Body composition scans">✓ Скенирање на телесен состав</li>
+                        <li data-mk="✓ Пристап до recovery suite" data-en="✓ Recovery suite access">✓ Пристап до recovery suite</li>
+                        <li data-mk="✓ Посветен тренер" data-en="✓ Dedicated coach">✓ Посветен тренер</li>
                     </ul>
-                    <a href="#contact" class="btn btn--outline w-full">Get Started</a>
+                    <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="btn btn--outline w-full" data-mk="Посетете не" data-en="Visit Us">Посетете не</a>
                 </div>
 
             </div>
@@ -447,56 +358,14 @@
     </section>
 
     <!-- ============================================================
-         SECTION 6 — GALLERY
-    ============================================================ -->
-    <section class="gallery section" id="gallery">
-        <div class="container">,
-
-            <div class="section-header reveal">
-                <div class="section-label">Inside APEX</div>
-                <h2 class="section-title">The <em>Space</em></h2>
-            </div>
-
-            <!-- REPLACE: all images in images/gallery-N.jpg (recommend 1200×800px, dark gym shots) -->
-            <div class="gallery__grid">
-                <div class="gallery__img" style="background-image:url('images/landscapeeeee.jpg')"><div class="gallery-placeholder">MAIN FLOOR PHOTO</div></div>
-                <div class="gallery__hover"><span>View ↗</span></div>
-                <div class="gallery__img" style="background-image:url('images/streght.jpg')"><div class="gallery-placeholder">STRENGTH ZONE</div></div>
-                <div class="gallery__hover"><span>View ↗</span></div>
-                <div class="gallery__img" style="background-image:url('images/Спорт.jpg')"><div class="gallery-placeholder">CARDIO SUITE</div></div>
-                <div class="gallery__hover"><span>View ↗</span></div>
-                <div class="gallery__img" style="background-image:url('images/Locker Room.webp')"><div class="gallery-placeholder">OLYMPIC PLATFORM</div></div>
-                <div class="gallery__hover"><span>View ↗</span></div>
-                <div class="gallery__img" style="background-image:url('images/ronnie.webp')"><div class="gallery-placeholder">GROUP STUDIO</div></div>
-                <div class="gallery__hover"><span>View ↗</span></div>
-                <div class="gallery__img" style="background-image:url('images/Golds Gym x Darc Sport.jpg')"><div class="gallery-placeholder">LOCKER ROOM</div></div>
-                <div class="gallery__hover"><span>View ↗</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox__close" id="lightboxClose" aria-label="Close">✕</button>
-        <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous">‹</button>
-        <div class="lightbox__content">
-            <div class="lightbox__img-wrap">
-                <img src="" alt="" id="lightboxImg" />
-                <div class="lightbox__caption" id="lightboxCaption"></div>
-            </div>
-        </div>
-        <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next">›</button>
-    </div>
-
-    <!-- ============================================================
-         SECTION 7 — TESTIMONIALS
+         SECTION 6 — TESTIMONIALS
     ============================================================ -->
     <section class="testimonials section" id="testimonials">
         <div class="container">
 
             <div class="section-header reveal">
-                <div class="section-label">Member Stories</div>
-                <h2 class="section-title">Results <em>Speak</em></h2>
+                <div class="section-label" data-mk="Приказни на членови" data-en="Member Stories">Приказни на членови</div>
+                <h2 class="section-title"><span data-mk="Резултатите" data-en="Results">Резултатите</span> <em data-mk="зборуваат" data-en="Speak">зборуваат</em></h2>
             </div>
 
             <div class="testimonials__carousel reveal">
@@ -504,56 +373,66 @@
 
                     <div class="testimonial-slide">
                         <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">I'd tried three other gyms before APEX. Nothing compares. The trainers actually know your name, your goals, and push you past limits you didn't think you had. Down 22kg in 7 months.</p>
+                        <p class="testimonial-text"
+                           data-mk="Пробав три други теретани пред APEX. Ништо не се споредува. Тренерите навистина го знаат твоето име, твоите цели и те туркаат преку граници кои не мислеше дека ги имаш. Изгубив 22кг за 7 месеци."
+                           data-en="I'd tried three other gyms before APEX. Nothing compares. The trainers actually know your name, your goals, and push you past limits you didn't think you had. Down 22kg in 7 months."
+                        >Пробав три други теретани пред APEX. Ништо не се споредува. Тренерите навистина го знаат твоето име, твоите цели и те туркаат преку граници кои не мислеше дека ги имаш. Изгубив 22кг за 7 месеци.</p>
                         <div class="testimonial-author">
-                            <!-- REPLACE: testimonial avatar in images/avatar-1.jpg -->
                             <div class="testimonial-avatar" style="background-image:url('images/man1.webp')"></div>
                             <div>
                                 <strong>Daniel Krstev</strong>
-                                <span>Lost 22kg · Pro Member</span>
+                                <span data-mk="Изгуби 22кг · Про член" data-en="Lost 22kg · Pro Member">Изгуби 22кг · Про член</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="testimonial-slide">
                         <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">The functional training program completely changed my athletic performance. My sprint speed is up, my injury count is zero. APEX is the only gym I'll ever recommend.</p>
+                        <p class="testimonial-text"
+                           data-mk="Програмата за функционален тренинг целосно ја промени мојата атлетска изведба. Брзината ми е зголемена, повредите се нула. APEX е единствената теретана која некогаш ќе ја препорачам."
+                           data-en="The functional training program completely changed my athletic performance. My sprint speed is up, my injury count is zero. APEX is the only gym I'll ever recommend."
+                        >Програмата за функционален тренинг целосно ја промени мојата атлетска изведба. Брзината ми е зголемена, повредите се нула. APEX е единствената теретана која некогаш ќе ја препорачам.</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar" style="background-image:url('images/grlll.webp')"></div>
                             <div>
                                 <strong>Elena Vasic</strong>
-                                <span>Athlete · Elite Member</span>
+                                <span data-mk="Атлетичар · Елита член" data-en="Athlete · Elite Member">Атлетичар · Елита член</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="testimonial-slide">
                         <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">I was a complete beginner. I was nervous. Week one, coach Marcus had me lifting things I thought were impossible. Twelve weeks later I deadlifted twice my bodyweight. This place is real.</p>
+                        <p class="testimonial-text"
+                           data-mk="Бев целосен почетник. Бев нервозен. Во првата недела, тренерот Маркос ме натера да кревам работи кои мислев дека се невозможни. Дванаесет недели подоцна кревав двапати тежината на моето тело. Ова место е вистинско."
+                           data-en="I was a complete beginner. I was nervous. Week one, coach Marcus had me lifting things I thought were impossible. Twelve weeks later I deadlifted twice my bodyweight. This place is real."
+                        >Бев целосен почетник. Бев нервозен. Во првата недела, тренерот Маркос ме натера да кревам работи кои мислев дека се невозможни. Дванаесет недели подоцна кревав двапати тежината на моето тело. Ова место е вистинско.</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar" style="background-image:url('images/man.jpg')"></div>
                             <div>
-                                <strong>Tomasz Brel</strong>
-                                <span>Beginner → Intermediate · Starter</span>
+                                <strong>Krste Pendaroski</strong>
+                                <span data-mk="Среден ниво " data-en="Intermediate">Среден ниво</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="testimonial-slide">
                         <div class="testimonial-quote">"</div>
-                        <p class="testimonial-text">Lena's nutrition program paired with the Elite membership is worth every cent. I've never felt this lean, strong, or energetic. The space itself is stunning — you want to train here.</p>
+                        <p class="testimonial-text"
+                           data-mk="Програмата за исхрана на Лена во комбинација со Елита членството вреди секој денар. Никогаш не сум се чувствувала толку витка, силна или енергична. Просторот е прекрасен — сакаш да тренираш тука."
+                           data-en="Lena's nutrition program paired with the Elite membership is worth every cent. I've never felt this lean, strong, or energetic. The space itself is stunning — you want to train here."
+                        >Програмата за исхрана на Лена во комбинација со Елита членството вреди секој денар. Никогаш не сум се чувствувала толку витка, силна или енергична. Просторот е прекрасен — сакаш да тренираш тука.</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar" style="background-image:url('images/grl.webp')"></div>
                             <div>
                                 <strong>Marta Ilic</strong>
-                                <span>Body Recomp · Elite Member</span>
+                                <span data-mk="Трансформација · Елита член" data-en="Body Recomp · Elite Member">Трансформација · Елита член</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- Controls -->
                 <div class="testimonials__controls">
                     <button class="t-btn" id="tPrev" aria-label="Previous testimonial">‹</button>
                     <div class="t-dots" id="tDots"></div>
@@ -565,105 +444,61 @@
     </section>
 
     <!-- ============================================================
-         SECTION 8 — CONTACT
+         SECTION 7 — CONTACT
     ============================================================ -->
     <section class="contact section" id="contact">
         <div class="container contact__grid">
 
-            <!-- Left: info -->
             <div class="contact__info reveal">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Start Your<br /><em>Journey</em></h2>
-                <p>Ready to elevate your training? Visit us, call us, or send a message and our team will respond within hours.</p>
+                <div class="section-label" data-mk="Контактирајте не" data-en="Get In Touch">Контактирајте не</div>
+                <h2 class="section-title"><span data-mk="Почнете го вашето" data-en="Start Your">Почнете го вашето</span><br /><em data-mk="патување" data-en="Journey">патување</em></h2>
+                <p data-mk="Готови сте да го издигнете тренингот? Посетете не, јавете се или дојдете лично." data-en="Ready to elevate your training? Visit us, call us, or come in person.">Готови сте да го издигнете тренингот? Посетете не, јавете се или дојдете лично.</p>
 
                 <div class="contact__details">
                     <div class="contact__detail-item">
-                        <div class="contact__detail-icon">📍</div>
                         <div>
-                            <strong>Location</strong>
-                            <!-- REPLACE: actual gym address -->
-                            <span>ul. Partizanska 47, Skopje, North Macedonia</span>
+                            <strong data-mk="Локација" data-en="Location">Локација</strong>
+                            <span>
+                                <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="location-link" data-mk="Сити Парк, Скопје, Северна Македонија" data-en="City Park, Skopje, North Macedonia">Сити Парк, Скопје, Северна Македонија</a>
+                            </span>
                         </div>
                     </div>
                     <div class="contact__detail-item">
-                        <div class="contact__detail-icon">📞</div>
                         <div>
-                            <strong>Phone</strong>
-                            <!-- REPLACE: actual phone number -->
-                            <span><a href="tel:+38971000000">+389 71 000 000</a></span>
+                            <strong data-mk="Телефон" data-en="Phone">Телефон</strong>
+                            <span><a href="tel:+38979366855">+389 79 366 855</a></span>
                         </div>
                     </div>
                     <div class="contact__detail-item">
-                        <div class="contact__detail-icon">🕐</div>
                         <div>
-                            <strong>Hours</strong>
-                            <span>Mon–Fri: 06:00–23:00<br />Sat–Sun: 08:00–21:00</span>
+                            <strong data-mk="Работно време" data-en="Hours">Работно време</strong>
+                            <span data-mk="Пон–Пет: 06:00–23:00<br />Саб–Нед: 08:00–21:00" data-en="Mon–Fri: 06:00–23:00<br />Sat–Sun: 08:00–21:00">Пон–Пет: 06:00–23:00<br />Саб–Нед: 08:00–21:00</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact__social">
-                    <!-- REPLACE: real social links -->
-                    <a href="#" class="social-btn" aria-label="Instagram">
+                    <a href="https://instagram.com/bunce.24" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#" class="social-btn" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="#" class="social-btn" aria-label="YouTube">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
                     </a>
                 </div>
             </div>
 
-            <!-- Right: form -->
-            <div class="contact__form-wrap reveal">
-                <form class="contact-form glass" id="contactForm" novalidate>
-                    <h3 class="form-title">Send a Message</h3>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" name="fname" placeholder="John" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" id="lname" name="lname" placeholder="Doe" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone (optional)</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+389 XX XXX XXX" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="interest">I'm interested in…</label>
-                        <select id="interest" name="interest">
-                            <option value="">Select a program</option>
-                            <option>Classic Fitness</option>
-                            <option>Functional Training</option>
-                            <option>Group Training</option>
-                            <option>Personal Training</option>
-                            <option>Cardio & Conditioning</option>
-                            <option>Strength & Power</option>
-                            <option>Membership Information</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your goals…"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn--primary w-full">Send Message</button>
-                    <div class="form-status" id="formStatus"></div>
-                </form>
+            <!-- Google Maps embed replacing contact form -->
+            <div class="contact__map">
+                <div class="map-container">
+                    <iframe
+                            title="APEX Location — City Park Skopje"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.123456789!2d21.4217!3d41.9961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13541567f7cbdd8b%3A0x9ddbf5de6e65f5e5!2sCity%20Park%20Skopje!5e0!3m2!1sen!2smk!4v1234567890"
+                            width="100%"
+                            height="100%"
+                            style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.85) contrast(0.9);"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <a href="https://maps.google.com/?q=City+Park+Skopje" target="_blank" rel="noopener" class="map-overlay-btn" data-mk="Отвори во Maps" data-en="Open in Maps">Отвори во Maps ↗</a>
+                </div>
             </div>
 
         </div>
@@ -682,38 +517,36 @@
                 <span class="logo__mark">▲</span>
                 <span>APEX</span>
             </div>
-            <p>Elite Performance Studio<br />Forging excellence since 2018.</p>
+            <p data-mk="Елитен студио за перформанси<br />Ковачница на извонредност од 2018." data-en="Elite Performance Studio<br />Forging excellence since 2018.">Елитен студио за перформанси<br />Ковачница на извонредност од 2018.</p>
         </div>
 
         <div class="footer__links">
-            <h4>Navigate</h4>
+            <h4 data-mk="Навигација" data-en="Navigate">Навигација</h4>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#trainers">Trainers</a></li>
-                <li><a href="#pricing">Membership</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" data-mk="За нас" data-en="About">За нас</a></li>
+                <li><a href="#programs" data-mk="Програми" data-en="Programs">Програми</a></li>
+                <li><a href="#trainers" data-mk="Тренери" data-en="Trainers">Тренери</a></li>
+                <li><a href="#pricing" data-mk="Членство" data-en="Membership">Членство</a></li>
+                <li><a href="#contact" data-mk="Контакт" data-en="Contact">Контакт</a></li>
             </ul>
         </div>
 
         <div class="footer__links">
-            <h4>Programs</h4>
+            <h4 data-mk="Програми" data-en="Programs">Програми</h4>
             <ul>
-                <li><a href="#programs">Classic Fitness</a></li>
-                <li><a href="#programs">Functional Training</a></li>
-                <li><a href="#programs">Group Training</a></li>
-                <li><a href="#programs">Personal Training</a></li>
-                <li><a href="#programs">Strength & Power</a></li>
+                <li><a href="#programs" data-mk="Класичен фитнес" data-en="Classic Fitness">Класичен фитнес</a></li>
+                <li><a href="#programs" data-mk="Функционален тренинг" data-en="Functional Training">Функционален тренинг</a></li>
+                <li><a href="#programs" data-mk="Групен тренинг" data-en="Group Training">Групен тренинг</a></li>
+                <li><a href="#programs" data-mk="Личен тренинг" data-en="Personal Training">Личен тренинг</a></li>
+                <li><a href="#programs" data-mk="Сила и моќ" data-en="Strength & Power">Сила и моќ</a></li>
             </ul>
         </div>
 
         <div class="footer__contact">
-            <h4>Contact</h4>
-            <!-- REPLACE: actual contact info -->
-            <p>ul. Partizanska 47<br />Skopje, North Macedonia</p>
-            <a href="tel:+38971000000">+389 71 000 000</a>
-            <a href="mailto:info@apex-studio.com">info@apex-studio.com</a>
+            <h4 data-mk="Контакт" data-en="Contact">Контакт</h4>
+            <p data-mk="Сити Парк<br />Скопје, Северна Македонија" data-en="City Park<br />Skopje, North Macedonia">Сити Парк<br />Скопје, Северна Македонија</p>
+            <a href="tel:+38979366855">+389 79 366 855</a>
+            <a href="mailto:buncheskibusiness@gmail.com">buncheskibusiness@gmail.com</a>
         </div>
 
     </div>
@@ -721,13 +554,12 @@
     <div class="footer__bottom container">
         <span>© 2025 APEX Performance Studio. All rights reserved.</span>
         <div class="footer__bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="#" data-mk="Политика на приватност" data-en="Privacy Policy">Политика на приватност</a>
+            <a href="#" data-mk="Услови за користење" data-en="Terms of Service">Услови за користење</a>
         </div>
     </div>
 </footer>
 
-<!-- Back to top -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">▲</button>
 
 <script src="script.js"></script>
